@@ -107,5 +107,3 @@ https://www.mongodb.com/
 * 0.5kB per user
 #### Collection weather:<br>
 * 0.8kB per forest
-
-
