@@ -15,7 +15,13 @@ const port = process.env.DATA_SERVICE_PORT
 const portUser = process.env.USER_SERVICE_PORT
 
 // SERVER_ADDRESS
-const serverAddress = process.env.SERVER_ADDRESS
+const dataServerAddress = process.env.DATA_SERVER_ADDRESS
+
+// SERVER_ADDRESS
+const userServerAddress = process.env.USER_SERVER_ADDRESS
+
+// SERVER_ADDRESS
+const vueServerAddress = process.env.USER_SERVER_ADDRESS
 
 
 
@@ -42,7 +48,7 @@ const {
 const cors = require('cors')
 const corsSettings = {
     cors: {
-        origin: serverAddress + '8080',
+        origin: vueServerAddress + '8080',
         methods: ['GET', 'POST', 'PUT', 'DELETE']
     }
 }
@@ -76,7 +82,7 @@ app.use(express.urlencoded({
     extended: true
 }))
 app.listen(port, () => {
-    console.log(`sensor data service live @ ${serverAddress}${port}`)
+    console.log(`sensor data service live @ ${dataServerAddress}${port}`)
 })
 
 // weather Endpoint
@@ -88,7 +94,7 @@ app.post('/api/weather', (req, weatherRes) => {
             if (req.body.token && dbres) {
 
                 //check token
-                const uri = serverAddress + portUser + '/api/checkSession'
+                const uri = userServerAddress + portUser + '/api/checkSession'
                 let checkSessionData = {
                     token: req.body.token,
                     userId: dbres._id.toString()
@@ -130,7 +136,7 @@ app.post('/api/sensorData', (req, sensorRes) => {
             if (req.body.token && dbres) {
                 //check token
 
-                const uri = serverAddress + portUser + '/api/checkSession'
+                const uri = userServerAddress + portUser + '/api/checkSession'
                 let checkSessionData = {
                     token: req.body.token,
                     userId: dbres._id.toString()
@@ -170,7 +176,7 @@ app.post('/api/forestData', (req, forestRes) => {
             if (req.body.token && dbres) {
                 //check token
 
-                const uri = serverAddress + portUser + '/api/checkSession'
+                const uri = userServerAddress + portUser + '/api/checkSession'
 
                 let checkSessionData = {
                     token: req.body.token,
