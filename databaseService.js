@@ -21,7 +21,7 @@ const dataServerAddress = process.env.DATA_SERVER_ADDRESS
 const userServerAddress = process.env.USER_SERVER_ADDRESS
 
 // SERVER_ADDRESS
-const vueServerAddress = process.env.USER_SERVER_ADDRESS
+const vueServerAddress = process.env.VUE_SERVER_ADDRESS
 
 
 
