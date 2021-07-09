@@ -8,6 +8,15 @@ if (process.env.NODE_ENV == 'production') {
 // DB_URI => Mongo DB Database Uri
 const dbUri = process.env.DB_URI
 
+// DATA_SERVICE_PORT
+const port = process.env.DATA_SERVICE_PORT
+
+// USER_SERVICE_PORT
+const portUser = process.env.USER_SERVICE_PORT
+
+// SERVER_ADDRESS
+const serverAddress = process.env.SERVER_ADDRESS
+
 
 
 //-------------------------------------------------------------------------------------modules
@@ -24,11 +33,7 @@ let ObjectId = require('mongodb').ObjectId
 // express
 const express = require('express')
 const app = express()
-const port = process.env.DATA_SERVICE_PORT
-const portUser = process.env.USER_SERVICE_PORT
 
-
-const serverAddress = process.env.SERVER_ADDRESS
 // uuid
 const {
     v4: uuidv4
